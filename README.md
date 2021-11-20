@@ -111,3 +111,57 @@ if let name = optionalName {
 
 print(greeting)
 ```
+
+### Functions and closures
+
+`func` to declare a function. `->` used to separate parameter
+names and types from the function return type.
+
+```swift
+func wish(name: String, event: String) -> String {
+  return "Hi \(name), Happy \(event)."
+}
+
+print(wish(name: "Kiran", event: "Birthday"))
+```
+
+tuples
+
+```swift
+func findStats(points: [Int]) -> (min: Int, max: Int, sum: Int) {
+  var min = points[0]
+  var max = points[0]
+  var sum = 0
+  
+  for score in points {
+    if score > max {
+      max = score
+    } else if score < min {
+      min = score
+    }
+    sum += score
+  }
+  
+  return (min, max, sum)
+}
+
+let stats = findStats(points: [7, 20, 72, 1])
+print(stats.sum)
+print(stats.2)
+```
+
+
+Nested functions
+
+```swift
+func addition() -> Int {
+  var x = 12
+  func add() {
+    x += 1
+  }
+  add()
+  return x
+}
+
+print(addition())
+```
